@@ -38,7 +38,7 @@ impl Entry {
         }
 
         let path = path.as_ref();
-        let metadata = match path.metadata() {
+        let metadata = match path.symlink_metadata() {
             Ok(metadata) => metadata,
             Err(error) => {
                 state.log(format!(
